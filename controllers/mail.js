@@ -6,7 +6,7 @@ exports.sendMail = async (req, res) => {
         service: 'Gmail',
         auth: {
             user: 'iamshiv20032003@gmail.com',
-            pass: 'wgoxruroilbvoizx'
+            pass: process.env.PASS
         }
     })
 

@@ -1,5 +1,6 @@
 const express = require('express')
 const app = express()
+const dotenv = require('dotenv').config()
 
 app.use(express.json())
 
@@ -12,7 +13,7 @@ const router = require('./routes/router')
 app.use('/api', router)
 
 // Server
-const port = process.env.PORT || 6060
+const port = process.env.PORT || 6050
 
 app.listen(port, () => {
     console.log(`Server is listen on port ${port}`)
