@@ -24,5 +24,4 @@ exports.sendMail = async (req, res) => {
             res.status(200).json("Email sent successfully" + info.response)
         }
     })
-
 }

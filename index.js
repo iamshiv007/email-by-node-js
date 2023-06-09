@@ -7,6 +7,10 @@ app.use(express.json())
 const connectDb = require('./connection/connect')
 connectDb()
 
+// routes
+const router = require('./routes/router')
+app.use('/api', router)
+
 // Server
 const port = process.env.PORT || 6060
 
