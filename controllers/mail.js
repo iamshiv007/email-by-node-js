@@ -2,6 +2,9 @@ const nodemailer = require("nodemailer")
 
 exports.sendMail = async (req, res) => {
 
+    const { email, subject, text } = req.body
+    const { originalname, buffer } = req.file
+
     let sender = nodemailer.createTransport({
         service: 'Gmail',
         auth: {
@@ -12,9 +15,13 @@ exports.sendMail = async (req, res) => {
 
     let mail = {
         from: 'iamshiv20032003@gmail.com',
-        to: "shivrajg20032003@gmail.com",
-        subject: "test",
-        text: "Send a email using node.js"
+        to: email,
+        subject: subject,
+        text: text,
+        attachments: {
+            filename: originalname,
+            content: buffer
+        }
     }
 
     sender.sendMail(mail, function (error, info) {
